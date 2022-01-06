@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="working with groups concept" verbose="2">
+
+	<test thread-count="5" name="demo test for test groups">
+		<groups>
+			<!--we can use this before test also but if we use then it's suite level 
+				group now it's test level group -->
+			<run>
+				<include name="sanity" />
+				<include name="functional" />
+				<include name="smoke" />
+			</run>
+		</groups>
+		<classes>
+			<class name="pages.Sample" />
+			<class name="pages.Sample4" />
+			<class name="pages.Sample3" />
+		</classes>
+	</test>
+
+	<test name="demo test for exclusion group">
+		<groups>
+			<run>
+				<include name="sanity" />
+				<include name="functional" />
+				<exclude name="smoke" />
+			</run>
+		</groups>
+		<classes>
+			<class name="pages.Sample" />
+			<class name="pages.Sample4" />
+			<class name="pages.Sample3" />
+		</classes>
+	</test>
+
+	<test name="demo test for meta groups">
+		<groups>
+			<define name="dailyBuild">
+				<include name="smoke" />
+				<include name="regression" />
+			</define>
+			<define name="weeklyBuild">
+				<include name="unit" />
+				<include name="functioan" /><!--If we pass wrong group name it 
+					won't throw exception -->
+			</define>
+			<run>
+				<include name="weeklyBuild" />
+				<include name="dailyBuild" />
+			</run>
+		</groups>
+		<classes>
+			<class name="pages.Sample" />
+			<class name="pages.Sample4" />
+			<class name="pages.Sample3" />
+		</classes>
+	</test>
+</suite>

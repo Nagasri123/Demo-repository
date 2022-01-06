@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="FreeCRM Suite" verbose="2">
+
+<test name="testing by using depencies">
+<classes>
+<class name="com.freeCRM.FreeCRM_login"/>
+</classes>
+</test>
+ </suite>  
