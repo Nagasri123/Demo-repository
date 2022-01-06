@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="FreeCRM Suite" verbose="2">
+
+	<!--for execute first and second test cases... remove @ignore in package-info.java -->
+
+	<test thread-count="5" name="method level ignore">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="pages.Login" />
+			<class name="pages.Sample" />
+		</classes>
+	</test>
+
+	<test thread-count="5" name="class level ignore">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="pages.Login" />
+			<class name="pages.Sample" />
+			<class name="pages.Sample2" />
+		</classes>
+	</test>
+
+	<test thread-count="5" name="package level ignore" enabled="false">
+		<parameter name="browser" value="chrome" />
+		<classes>
+			<class name="pages.Login" />
+			<class name="pages.Sample" />
+			<class name="pages.Sample2" />
+			<class name="com.hyr.test.testFB" />
+		</classes>
+	</test>
+</suite>  
