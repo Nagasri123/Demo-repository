@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite parallel="tests" name="FreeCRM Suite" verbose="2">
+<suite name="FreeCRM Suite" verbose="2">
 
-<!--for executing this remove @ignore in the package-info.java-->
+	<!--for execute first and second test cases... remove @ignore in package-info.java -->
 
- 
-	<test thread-count="5" name="executing with chrome">
+	<test thread-count="5" name="method level ignore">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="pages.Login" />
@@ -13,8 +12,8 @@
 		</classes>
 	</test>
 
-	<test thread-count="5" name="executing with edge">
-		<parameter name="browser" value="edge" />
+	<test thread-count="5" name="class level ignore">
+		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="pages.Login" />
 			<class name="pages.Sample" />
@@ -22,7 +21,7 @@
 		</classes>
 	</test>
 
-	<test thread-count="5" name="executing with chrome"  >
+	<test thread-count="5" name="package level ignore" enabled="false">
 		<parameter name="browser" value="chrome" />
 		<classes>
 			<class name="pages.Login" />
